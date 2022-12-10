@@ -6,11 +6,6 @@ import ContactList from './ContactList';
 import { nanoid } from 'nanoid';
 
 const App = () => {
-  // state = {
-  //   contacts: [],
-  //   filter: '',
-  // };
-
   const [contacts, setContacts] = useState([]);
   const [filter, setFilter] = useState('');
 
