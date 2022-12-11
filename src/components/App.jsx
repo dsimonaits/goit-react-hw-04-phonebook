@@ -6,17 +6,17 @@ import ContactList from './ContactList';
 import { nanoid } from 'nanoid';
 
 const App = () => {
-  const [contacts, setContacts] = useState([]);
   const [filter, setFilter] = useState('');
-
-  useEffect(() => {
+  const [contacts, setContacts] = useState(() => {
     const localStorageContacts = localStorage.getItem('contacts');
     const contactsParsed = JSON.parse(localStorageContacts);
 
     if (localStorageContacts) {
-      setContacts(contactsParsed);
+      return contactsParsed;
+    } else {
+      return [];
     }
-  }, []);
+  });
 
   useEffect(() => {
     localStorage.setItem('contacts', JSON.stringify(contacts));
